@@ -62,3 +62,22 @@
     String sub1 = word1.substring(6); // sub1 的值为 "World"
     String sub2 = word1.substring(0, 5); // sub2 的值为 "Hello"
     ```
+
+## 6. `word1.toCharArray()`
+
+*   **知识点：** 将字符串转换为字符数组。
+*   **说明：** `toCharArray()` 是 `String` 类的一个方法，用于将字符串的每个字符转换为一个 `char` 数组，便于遍历和修改。
+*   **示例：**
+
+    ```java
+    String word1 = "Hello";
+    char[] charArray = word1.toCharArray(); 
+    // charArray 的值为 ['H', 'e', 'l', 'l', 'o']
+    
+    for (char c : charArray) {
+        System.out.print(c + " "); // 输出: H e l l o
+    }
+    ```
+
+
+
