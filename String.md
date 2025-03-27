@@ -78,6 +78,13 @@
         System.out.print(c + " "); // 输出: H e l l o
     }
     ```
+## 7. `附加方法`
+
+Character.isLetterOrDigit(): 判断指定字符是否为字母或数字。
+
+Character.toLowerCase(): 将指定字符转换为小写。
+
+Character.toUpperCase(): 将指定字符转换为大写。
 
 
 
