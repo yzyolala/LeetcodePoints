@@ -134,19 +134,39 @@
 
 ## 9. `map.entrySet()`
 
-*   **知识点：** 获取 `Map` 中所有的键值对。
+*   **知识点：** 获取 `Map` 中所有的键值对，并结合 `for` 循环进行遍历。
 *   **说明：** `entrySet()` 方法返回 `Map` 中所有键值对的 `Set` 视图，可用于遍历 `Map` 的所有键值对。
+
 *   **示例：**
 
     ```java
-    Map<String, Integer> map = new HashMap<>();
-    map.put("X", 5);
-    map.put("Y", 10);
+    Map<Integer, Integer> map = new HashMap<>();
+    map.put(1, 10);
+    map.put(2, 5);
+    map.put(3, 20);
 
-    for (Map.Entry<String, Integer> entry : map.entrySet()) {
-        System.out.println(entry.getKey() + " -> " + entry.getValue());
+    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
     }
     // 输出:
-    // X -> 5
-    // Y -> 10
+    // Key: 1, Value: 10
+    // Key: 2, Value: 5
+    // Key: 3, Value: 20
     ```
+
+*   **进阶用法：** 在 `for` 循环中结合 `PriorityQueue` 进行操作，例如维护一个大小为 `k` 的最小堆。
+
+    ```java
+    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        minHeap.offer(entry); // 插入堆
+        if (minHeap.size() > k) {
+            minHeap.poll(); // 当堆大小超过 k 时，移除最小元素
+        }
+    }
+    ```
+
+*   **说明：**  
+    - `for (Map.Entry<Integer, Integer> entry : map.entrySet())` 遍历 `Map` 的所有键值对。  
+    - `minHeap.offer(entry)` 将元素插入 `PriorityQueue`（最小堆）。  
+    - `if (minHeap.size() > k) minHeap.poll();` 确保 `PriorityQueue` 的大小始终保持在 `k`，即仅保留 `Map` 中 `value` 最大的 `k` 个元素。
+
