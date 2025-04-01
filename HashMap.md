@@ -170,3 +170,27 @@
     - `minHeap.offer(entry)` 将元素插入 `PriorityQueue`（最小堆）。  
     - `if (minHeap.size() > k) minHeap.poll();` 确保 `PriorityQueue` 的大小始终保持在 `k`，即仅保留 `Map` 中 `value` 最大的 `k` 个元素。
 
+## 10. `map.getOrDefault(s,0)+1)`
+
+如果 s 已经出现过： 就把 s 之前出现的次数加 1。
+如果 s 还没出现过： 就把 s 出现的次数设为 1（因为默认值是 0，加 1 就是 1）。
+
+假设你想统计一句话里每个单词出现的次数，这句话是 "apple banana apple"。
+
+第一次遇到 "apple"：
+
+map.getOrDefault("apple", 0) 返回 0（因为 "apple" 还没出现过）。
+0 + 1 等于 1。
+所以，"apple" 的计数变成 1。
+第一次遇到 "banana"：
+
+map.getOrDefault("banana", 0) 返回 0（因为 "banana" 还没出现过）。
+0 + 1 等于 1。
+所以，"banana" 的计数变成 1。
+第二次遇到 "apple"：
+
+map.getOrDefault("apple", 0) 返回 1（因为 "apple" 之前出现过一次）。
+1 + 1 等于 2。
+所以，"apple" 的计数变成 2。
+最终，你的计数器会记录 "apple" 出现 2 次，"banana" 出现 1 次。
+
