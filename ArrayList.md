@@ -46,3 +46,5 @@
     System.out.println(Arrays.equals(arr1, arr2)); // 输出: true
     System.out.println(Arrays.equals(arr1, arr3)); // 输出: false
     ```
+4.List<Integer> list = Arrays.asList(1, 2, 3, 4);  // 返回固定大小的 List
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4));// 返回可变大小的 List
