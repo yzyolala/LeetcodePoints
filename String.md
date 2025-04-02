@@ -86,5 +86,8 @@ Character.toLowerCase(): 将指定字符转换为小写。
 
 Character.toUpperCase(): 将指定字符转换为大写。
 
+8.toString()一般跟stringbuilder()联用
+而new String(char)是转换成string
+
 
 
