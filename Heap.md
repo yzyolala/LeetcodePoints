@@ -60,3 +60,58 @@
     ```java
     System.out.println("当前堆顶 Key: " + minHeap.peek().getKey()); // 输出: 1
     ```
+
+1. 最小堆（Min-Heap）创建模板
+
+// 默认就是最小堆（无需Comparator）
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+// 或者显式声明（更清晰）
+PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
+
+// 对于自定义对象（如Map.Entry按value排序）
+PriorityQueue<Map.Entry<Integer, Integer>> minHeap = 
+    new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
+
+2. 最大堆（Max-Heap）创建模板
+
+// 使用reverseOrder（推荐）
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+
+// 或者用lambda表达式
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+
+// 对于自定义对象（如Map.Entry按value倒序）
+PriorityQueue<Map.Entry<Integer, Integer>> maxHeap =
+    new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+
+3. 万能记忆口诀
+
+最小堆：默认就是 / (a,b)->a-b
+最大堆：reverse / (a,b)->b-a
+
+5. 特殊场景处理
+
+字符串长度排序
+// 最短字符串优先（最小堆）
+PriorityQueue<String> minStrHeap = 
+    new PriorityQueue<>(Comparator.comparingInt(String::length));
+
+// 最长字符串优先（最大堆）
+PriorityQueue<String> maxStrHeap =
+    new PriorityQueue<>((a,b) -> b.length()-a.length());
+
+自定义对象排序
+class Person {
+    String name;
+    int age;
+}
+
+// 按年龄最小堆
+PriorityQueue<Person> minAgeHeap = 
+    new PriorityQueue<>(Comparator.comparingInt(p -> p.age));
+
+// 按年龄最大堆
+PriorityQueue<Person> maxAgeHeap =
+    new PriorityQueue<>((a,b) -> b.age - a.age);
+
