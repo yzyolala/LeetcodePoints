@@ -48,3 +48,13 @@
     ```
 4.List<Integer> list = Arrays.asList(1, 2, 3, 4);  // 返回固定大小的 List
 List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4));// 返回可变大小的 List
+5.System.arraycopy(nums, 0, res, 0, n);
+arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+让我们来详细解释一下每个参数的含义：
+
+src (Object): 源数组，即你要从中复制数据的数组。
+srcPos (int): 源数组中的起始位置（索引），从这个位置开始复制数据。
+dest (Object): 目标数组，即你要将数据复制到的数组。
+destPos (int): 目标数组中的起始位置（索引），从这个位置开始存放复制过来的数据。
+length (int): 要复制的元素个数。
+
